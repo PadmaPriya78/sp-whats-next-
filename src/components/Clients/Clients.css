@@ -1,0 +1,94 @@
+/* ── Clients Section ── */
+.clients-section {
+    background: transparent;
+    padding: 80px 0;
+    overflow: hidden;
+}
+
+/* ── Static Grid Layout ── */
+.clients-grid {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    gap: 24px;
+    margin-top: 48px;
+}
+
+.client-logo-card {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--white);
+    border: 1.5px solid var(--border);
+    border-radius: var(--radius-md);
+    padding: 15px 30px;
+    min-width: 220px;
+    height: 100px;
+    cursor: default;
+    transition: var(--transition);
+    box-shadow: var(--shadow-sm);
+}
+
+.client-logo-card:hover {
+    border-color: var(--primary-orange);
+    box-shadow: var(--shadow-md);
+    transform: translateY(-4px);
+}
+
+.client-brand {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    font-family: var(--font-heading, 'Inter', sans-serif);
+    font-size: 1.3rem;
+    font-weight: 800;
+    letter-spacing: 0.5px;
+    padding: 12px 24px;
+    white-space: nowrap;
+}
+
+/* Different logo shapes based on brand */
+.client-brand--box {
+    border-radius: 8px;
+    min-width: 150px;
+}
+
+.client-brand--pill {
+    border-radius: 50px;
+    border: 2px solid transparent;
+}
+
+.client-brand--icon {
+    font-size: 1.6rem;
+    font-weight: 900;
+    font-style: italic;
+    padding: 0;
+}
+
+.client-brand--icon span {
+    transform: skewX(-5deg);
+}
+
+.client-icon {
+    width: 32px;
+    height: 32px;
+}
+
+/* ── Responsive ── */
+@media (max-width: 720px) {
+    .clients-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 16px;
+    }
+}
+
+@media (max-width: 480px) {
+    .clients-grid {
+        grid-template-columns: 1fr;
+        gap: 14px;
+    }
+
+    .client-logo-card {
+        min-width: unset;
+    }
+}
