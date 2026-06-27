@@ -90,9 +90,9 @@ function BlogPreview() {
         const headingObserver = new IntersectionObserver(
             ([entry]) => {
                 if (entry.isIntersecting) setTypeActive(true);
-                else { setTypeActive(false); setVisibleCards([]); }
+                else setTypeActive(false);
             },
-            { threshold: 0.4 }
+            { threshold: 0.1 }
         );
 
         // Individual card observers for staggered entrance

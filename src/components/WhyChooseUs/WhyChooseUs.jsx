@@ -2,18 +2,18 @@ import { useState, useEffect, useRef, useCallback } from "react";
 import {
     Building2, Users, Zap, Trophy,
 } from "lucide-react";
-import wcuInstallation from "../../assets/images/wcu-installation-orange.png";
-import wcuMaintenance from "../../assets/images/wcu-maintenance-orange.png";
+import wcuInstallation from "../../assets/images/wcu-installation.jpg";
+import wcuMaintenance from "../../assets/images/wcu-maintenance.jpg";
 import SolarSteps from "../SolarSteps/SolarSteps";
 import SolarLoans from "../SolarLoans/SolarLoans";
 import "./WhyChooseUs.css";
 
 /* ── Counter Band Data ───────────────────────────────── */
 const counters = [
-    { end: 500, suffix: "+",    label: "Projects Completed",       Icon: Building2 },
-    { end: 450, suffix: "+",    label: "Happy Clients",            Icon: Users     },
-    { end: 1,   suffix: " MW+", label: "Solar Capacity Installed", Icon: Zap       },
-    { end: 15,  suffix: "+",    label: "Years of Experience",      Icon: Trophy    },
+    { end: 500, suffix: "+", label: "Projects Completed", Icon: Building2 },
+    { end: 450, suffix: "+", label: "Happy Clients", Icon: Users },
+    { end: 1, suffix: " MW+", label: "Solar Capacity Installed", Icon: Zap },
+    { end: 15, suffix: "+", label: "Years of Experience", Icon: Trophy },
 ];
 
 function useCounter(end, duration, active) {
@@ -70,8 +70,8 @@ function WhyChooseUs() {
             { threshold: 0.08 }
         );
 
-        if (counterRef.current)  counterObserver.observe(counterRef.current);
-        if (sectionRef.current)  sectionObserver.observe(sectionRef.current);
+        if (counterRef.current) counterObserver.observe(counterRef.current);
+        if (sectionRef.current) sectionObserver.observe(sectionRef.current);
 
         return () => {
             counterObserver.disconnect();
@@ -141,13 +141,13 @@ function WhyChooseUs() {
                                 <div className="wcu-weather-icon-wrap" aria-hidden="true">
                                     <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                                         {/* Wind lines */}
-                                        <path d="M2 8H15C16.5 8 17.5 7 17.5 5.5C17.5 4 16.5 3 15 3C13.5 3 13 4 13 5" stroke="var(--primary-orange)" strokeWidth="2" strokeLinecap="round"/>
-                                        <path d="M1 12H19C20.5 12 21.5 11 21.5 9.5C21.5 8 20.5 7 19 7C17.5 7 17 8 17 9" stroke="var(--primary-orange)" strokeWidth="2" strokeLinecap="round"/>
-                                        <path d="M3 16H11C12.5 16 13.5 15 13.5 13.5C13.5 12 12.5 11 11 11" stroke="var(--primary-orange)" strokeWidth="2" strokeLinecap="round"/>
+                                        <path d="M2 8H15C16.5 8 17.5 7 17.5 5.5C17.5 4 16.5 3 15 3C13.5 3 13 4 13 5" stroke="var(--primary-orange)" strokeWidth="2" strokeLinecap="round" />
+                                        <path d="M1 12H19C20.5 12 21.5 11 21.5 9.5C21.5 8 20.5 7 19 7C17.5 7 17 8 17 9" stroke="var(--primary-orange)" strokeWidth="2" strokeLinecap="round" />
+                                        <path d="M3 16H11C12.5 16 13.5 15 13.5 13.5C13.5 12 12.5 11 11 11" stroke="var(--primary-orange)" strokeWidth="2" strokeLinecap="round" />
                                         {/* Structure beam / brackets */}
-                                        <path d="M6 19L18 19" stroke="var(--primary-orange)" strokeWidth="2" strokeLinecap="round"/>
-                                        <path d="M9 19L9 22" stroke="var(--primary-orange)" strokeWidth="2" strokeLinecap="round"/>
-                                        <path d="M15 19L15 22" stroke="var(--primary-orange)" strokeWidth="2" strokeLinecap="round"/>
+                                        <path d="M6 19L18 19" stroke="var(--primary-orange)" strokeWidth="2" strokeLinecap="round" />
+                                        <path d="M9 19L9 22" stroke="var(--primary-orange)" strokeWidth="2" strokeLinecap="round" />
+                                        <path d="M15 19L15 22" stroke="var(--primary-orange)" strokeWidth="2" strokeLinecap="round" />
                                     </svg>
                                 </div>
                                 <div className="wcu-weather-body">
@@ -185,13 +185,13 @@ function WhyChooseUs() {
                                                     <feDropShadow dx="1" dy="4" stdDeviation="3" floodColor="#f47b20" floodOpacity="0.2" />
                                                 </filter>
                                             </defs>
-                                            
+
                                             {/* The Zero "0" - 3D Back/Depth */}
-                                            <path d="M 50 15 A 30 45 0 0 0 20 60 A 30 45 0 0 0 50 105 A 30 45 0 0 0 80 60 A 30 45 0 0 0 50 15 Z M 50 35 A 12 25 0 0 1 62 60 A 12 25 0 0 1 50 85 A 12 25 0 0 1 38 60 A 12 25 0 0 1 50 35 Z" 
+                                            <path d="M 50 15 A 30 45 0 0 0 20 60 A 30 45 0 0 0 50 105 A 30 45 0 0 0 80 60 A 30 45 0 0 0 50 15 Z M 50 35 A 12 25 0 0 1 62 60 A 12 25 0 0 1 50 85 A 12 25 0 0 1 38 60 A 12 25 0 0 1 50 35 Z"
                                                 fill="url(#depthGrad)" transform="translate(4, 4)" />
-                                                    
+
                                             {/* The Zero "0" - Front */}
-                                            <path d="M 50 15 A 30 45 0 0 0 20 60 A 30 45 0 0 0 50 105 A 30 45 0 0 0 80 60 A 30 45 0 0 0 50 15 Z M 50 35 A 12 25 0 0 1 62 60 A 12 25 0 0 1 50 85 A 12 25 0 0 1 38 60 A 12 25 0 0 1 50 35 Z" 
+                                            <path d="M 50 15 A 30 45 0 0 0 20 60 A 30 45 0 0 0 50 105 A 30 45 0 0 0 80 60 A 30 45 0 0 0 50 15 Z M 50 35 A 12 25 0 0 1 62 60 A 12 25 0 0 1 50 85 A 12 25 0 0 1 38 60 A 12 25 0 0 1 50 35 Z"
                                                 fill="url(#zeroGrad)" filter="url(#dropShadow)" />
 
                                             {/* Percent symbol - 3D Back/Depth */}
@@ -221,7 +221,7 @@ function WhyChooseUs() {
                             {/* 3 — Tall Maintenance card */}
                             <div className="wcu-bento-card wcu-card-maintain fade-in-right delay-2">
                                 <div className="wcu-maintain-text">
-                                    <h3 className="wcu-maintain-title">5-Year Professional<br/>Maintenance</h3>
+                                    <h3 className="wcu-maintain-title">5-Year Professional<br />Maintenance</h3>
                                     <p className="wcu-maintain-desc">
                                         Monthly deep cleaning, health checks &amp; repairs included.
                                     </p>

@@ -1,9 +1,9 @@
 import React from 'react';
 import './SolarLoans.css';
-import solarLoansEmi from '../../assets/images/solar_loans_emi_orange.png';
-import { 
-    SbiIcon, HdfcIcon, IciciIcon, AxisIcon, 
-    PnbIcon, BobIcon, BoiIcon, CbiIcon, CalendarRupeeIcon 
+import solarInstallerCustomer from '../../assets/images/solar-installer-customer.jpg';
+import {
+    SbiIcon, HdfcIcon, IciciIcon, AxisIcon,
+    PnbIcon, BobIcon, BoiIcon, CbiIcon, CalendarRupeeIcon
 } from './BankIcons';
 
 function SolarLoans() {
@@ -19,15 +19,15 @@ function SolarLoans() {
                 <div className="sl-grid">
                     {/* Left Card */}
                     <div className="sl-left-card">
+                        <img
+                            src={solarInstallerCustomer}
+                            alt="5-year EMI Plan with Solar Installer"
+                            className="sl-left-image"
+                        />
                         <div className="sl-left-content">
                             <h3>5-year EMI Plan</h3>
                             <p>Flexible payment options that fit your budget perfectly.</p>
                         </div>
-                        <img 
-                            src={solarLoansEmi} 
-                            alt="5-year EMI Plan with Solar Installer" 
-                            className="sl-left-image" 
-                        />
                     </div>
 
                     {/* Right Column */}
@@ -49,10 +49,10 @@ function SolarLoans() {
                         {/* Bottom Card */}
                         <div className="sl-right-card sl-card-banks">
                             <div className="sl-card-text">
-                                <h3>EMI starting from just<br/>₹ 2,170/month</h3>
+                                <h3>EMI starting from just<br />₹ 2,170/month</h3>
                                 <p>Get instant long-term loans with nationalised banks up to 10 years.</p>
                             </div>
-                            
+
                             <div className="sl-bank-logos">
                                 <div className="sl-bank-logo"><SbiIcon /></div>
                                 <div className="sl-bank-logo"><HdfcIcon /></div>

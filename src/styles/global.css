@@ -21,7 +21,7 @@ body {
         linear-gradient(90deg, rgba(0, 0, 0, 0.03) 1px, transparent 1px);
     background-size: 35px 35px;
     color: var(--dark);
-    overflow-x: hidden;
+    overflow-x: clip;
     line-height: 1.6;
     -webkit-font-smoothing: antialiased;
 }
@@ -52,7 +52,7 @@ section {
 
 /* ── Container ── */
 .container {
-    width: min(98%, 1600px);
+    width: min(98%, 1280px);
     margin: 0 auto;
 }
 

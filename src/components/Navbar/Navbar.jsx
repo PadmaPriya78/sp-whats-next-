@@ -11,6 +11,9 @@ const BRANDS = [
 
 function Navbar() {
     const [scrolled,       setScrolled]       = useState(() => window.scrollY > 50);
+    const [visible,        setVisible]        = useState(true);
+    const [lastScrollY,    setLastScrollY]    = useState(0);
+
     const [menuOpen,       setMenuOpen]       = useState(false);
     const [dropdownOpen,   setDropdownOpen]   = useState(false);
     const [mobileProdOpen, setMobileProdOpen] = useState(false);
@@ -18,10 +21,20 @@ function Navbar() {
     const [mobileInverterOpen, setMobileInverterOpen] = useState(false);
 
     useEffect(() => {
-        const onScroll = () => setScrolled(window.scrollY > 50);
-        window.addEventListener("scroll", onScroll);
+        const onScroll = () => {
+            const currentScrollY = window.scrollY;
+            setScrolled(currentScrollY > 50);
+
+            if (currentScrollY > lastScrollY && currentScrollY > 100) {
+                setVisible(false);
+            } else {
+                setVisible(true);
+            }
+            setLastScrollY(currentScrollY);
+        };
+        window.addEventListener("scroll", onScroll, { passive: true });
         return () => window.removeEventListener("scroll", onScroll);
-    }, []);
+    }, [lastScrollY]);
 
     const closeAll = () => {
         setMenuOpen(false);
@@ -32,7 +45,7 @@ function Navbar() {
     };
 
     return (
-        <nav className={`navbar ${scrolled ? "navbar--scrolled" : ""}`}>
+        <nav className={`navbar ${scrolled ? "navbar--scrolled" : ""} ${!visible ? "navbar--hidden" : ""}`}>
             <div className="container navbar-inner">
 
                 {/* Logo */}
@@ -65,71 +78,17 @@ function Navbar() {
                         </NavLink>
 
                         <div className="nav-dropdown-menu" role="menu">
-                            {BRANDS.map(({ slug, label }) => {
-                                if (slug === 'eastman') {
-                                    return (
-                                        <div key={slug} className="nav-dropdown-item-wrap nav-dropdown-item-wrap--has-submenu">
-                                            <Link
-                                                to="/products/eastman"
-                                                className="nav-dropdown-item nav-dropdown-item--has-submenu"
-                                                onClick={closeAll}
-                                            >
-                                                <span>{label}</span>
-                                                <svg
-                                                    className="nav-subdropdown-chevron"
-                                                    width="10" height="10"
-                                                    viewBox="0 0 12 12"
-                                                    fill="none"
-                                                    aria-hidden="true"
-                                                >
-                                                    <path d="M4 2l4 4-4 4" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"/>
-                                                </svg>
-                                            </Link>
-                                            
-                                            <div className="nav-subdropdown-menu" role="menu">
-                                                <div className="nav-subdropdown-item-wrap nav-subdropdown-item-wrap--has-submenu">
-                                                    <Link
-                                                        to="/products/eastman#section-grid-tie"
-                                                        className="nav-subdropdown-item nav-subdropdown-item--has-submenu"
-                                                        onClick={closeAll}
-                                                    >
-                                                        <span>Solar Inverter</span>
-                                                        <svg
-                                                            className="nav-subdropdown-chevron"
-                                                            width="10" height="10"
-                                                            viewBox="0 0 12 12"
-                                                            fill="none"
-                                                            aria-hidden="true"
-                                                        >
-                                                            <path d="M4 2l4 4-4 4" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"/>
-                                                        </svg>
-                                                    </Link>
-                                                    <div className="nav-subsubdropdown-menu" role="menu">
-                                                        <Link to="/products/eastman#section-grid-tie" className="nav-subsubdropdown-item" onClick={closeAll}>Solar Grid Tie Inverter</Link>
-                                                        <Link to="/products/eastman#section-hybrid-lv" className="nav-subsubdropdown-item" onClick={closeAll}>Solar Hybrid Inverter IP65 - Low Voltage</Link>
-                                                        <Link to="/products/eastman#section-hybrid-hv" className="nav-subsubdropdown-item" onClick={closeAll}>Solar Hybrid Inverter IP65 - High Voltage</Link>
-                                                        <Link to="/products/eastman#section-off-grid" className="nav-subsubdropdown-item" onClick={closeAll}>Solar Off-Grid Inverter</Link>
-                                                    </div>
-                                                </div>
-                                                <Link to="/products/eastman#section-lithium" className="nav-subdropdown-item" onClick={closeAll}>Solar Lithium Battery</Link>
-                                                <Link to="/products/eastman#section-tubular" className="nav-subdropdown-item" onClick={closeAll}>Solar Conventional Tubular Battery</Link>
-                                                <Link to="/products/eastman#section-panels" className="nav-subdropdown-item" onClick={closeAll}>Solar Panels</Link>
-                                            </div>
-                                        </div>
-                                    );
-                                }
-                                return (
-                                    <Link
-                                        key={slug}
-                                        to={`/products/${slug}`}
-                                        className="nav-dropdown-item"
-                                        role="menuitem"
-                                        onClick={closeAll}
-                                    >
-                                        {label}
-                                    </Link>
-                                );
-                            })}
+                            {BRANDS.map(({ slug, label }) => (
+                                <Link
+                                    key={slug}
+                                    to={`/products/${slug}`}
+                                    className="nav-dropdown-item"
+                                    role="menuitem"
+                                    onClick={closeAll}
+                                >
+                                    {label}
+                                </Link>
+                            ))}
                         </div>
                     </li>
 
@@ -182,120 +141,17 @@ function Navbar() {
                                 <li>
                                     <NavLink to="/products" onClick={closeAll}>All Brands</NavLink>
                                 </li>
-                                {BRANDS.map(({ slug, label }) => {
-                                    if (slug === 'eastman') {
-                                        return (
-                                            <li key={slug} className="mobile-brand-item">
-                                                <div className="mobile-brand-header">
-                                                    <Link
-                                                        to="/products/eastman"
-                                                        className="mobile-sub-item mobile-sub-item--brand"
-                                                        onClick={closeAll}
-                                                    >
-                                                        {label}
-                                                    </Link>
-                                                    <button
-                                                        className="mobile-sub-toggle"
-                                                        onClick={() => setMobileEastmanOpen((o) => !o)}
-                                                        aria-expanded={mobileEastmanOpen}
-                                                    >
-                                                        <svg
-                                                            className={`mobile-chevron${mobileEastmanOpen ? ' rotated' : ''}`}
-                                                            width="12" height="12"
-                                                            viewBox="0 0 12 12"
-                                                            fill="none"
-                                                            aria-hidden="true"
-                                                        >
-                                                            <path d="M2 4l4 4 4-4" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"/>
-                                                        </svg>
-                                                    </button>
-                                                </div>
-
-                                                {mobileEastmanOpen && (
-                                                    <ul className="mobile-categories-menu">
-                                                        <li className="mobile-category-item">
-                                                            <div className="mobile-category-header">
-                                                                <Link
-                                                                    to="/products/eastman#section-grid-tie"
-                                                                    className="mobile-cat-link"
-                                                                    onClick={closeAll}
-                                                                >
-                                                                    Solar Inverter
-                                                                </Link>
-                                                                <button
-                                                                    className="mobile-sub-toggle"
-                                                                    onClick={() => setMobileInverterOpen((o) => !o)}
-                                                                    aria-expanded={mobileInverterOpen}
-                                                                >
-                                                                    <svg
-                                                                        className={`mobile-chevron${mobileInverterOpen ? ' rotated' : ''}`}
-                                                                        width="12" height="12"
-                                                                        viewBox="0 0 12 12"
-                                                                        fill="none"
-                                                                        aria-hidden="true"
-                                                                    >
-                                                                        <path d="M2 4l4 4 4-4" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"/>
-                                                                    </svg>
-                                                                </button>
-                                                            </div>
-
-                                                            {mobileInverterOpen && (
-                                                                <ul className="mobile-inverters-menu">
-                                                                    <li>
-                                                                        <Link to="/products/eastman#section-grid-tie" className="mobile-inverter-link" onClick={closeAll}>
-                                                                            Solar Grid Tie Inverter
-                                                                        </Link>
-                                                                    </li>
-                                                                    <li>
-                                                                        <Link to="/products/eastman#section-hybrid-lv" className="mobile-inverter-link" onClick={closeAll}>
-                                                                            Solar Hybrid Inverter Low Voltage
-                                                                        </Link>
-                                                                    </li>
-                                                                    <li>
-                                                                        <Link to="/products/eastman#section-hybrid-hv" className="mobile-inverter-link" onClick={closeAll}>
-                                                                            Solar Hybrid Inverter High Voltage
-                                                                        </Link>
-                                                                    </li>
-                                                                    <li>
-                                                                        <Link to="/products/eastman#section-off-grid" className="mobile-inverter-link" onClick={closeAll}>
-                                                                            Solar Off-Grid Inverter
-                                                                        </Link>
-                                                                    </li>
-                                                                </ul>
-                                                            )}
-                                                        </li>
-                                                        <li>
-                                                            <Link to="/products/eastman#section-lithium" className="mobile-cat-link" onClick={closeAll}>
-                                                                Solar Lithium Battery
-                                                            </Link>
-                                                        </li>
-                                                        <li>
-                                                            <Link to="/products/eastman#section-tubular" className="mobile-cat-link" onClick={closeAll}>
-                                                                Solar Conventional Tubular Battery
-                                                            </Link>
-                                                        </li>
-                                                        <li>
-                                                            <Link to="/products/eastman#section-panels" className="mobile-cat-link" onClick={closeAll}>
-                                                                Solar Panels
-                                                            </Link>
-                                                        </li>
-                                                    </ul>
-                                                )}
-                                            </li>
-                                        );
-                                    }
-                                    return (
-                                        <li key={slug}>
-                                            <Link
-                                                to={`/products/${slug}`}
-                                                className="mobile-sub-item"
-                                                onClick={closeAll}
-                                            >
-                                                {label}
-                                            </Link>
-                                        </li>
-                                    );
-                                })}
+                                {BRANDS.map(({ slug, label }) => (
+                                    <li key={slug}>
+                                        <Link
+                                            to={`/products/${slug}`}
+                                            className="mobile-sub-item"
+                                            onClick={closeAll}
+                                        >
+                                            {label}
+                                        </Link>
+                                    </li>
+                                ))}
                             </ul>
                         )}
                     </li>

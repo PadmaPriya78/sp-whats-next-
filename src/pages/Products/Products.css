@@ -1,8 +1,12 @@
 /* ── Hero ── */
 .products-hero,
 .brand-hero {
-    background: linear-gradient(135deg, #0a1628 0%, var(--bg-charcoal) 60%, var(--bg-dark) 100%);
-    margin-top: var(--navbar-height);
+    background: 
+        linear-gradient(135deg, rgba(10, 22, 40, 0.75) 0%, rgba(20, 26, 33, 0.65) 60%, rgba(13, 17, 23, 0.85) 100%),
+        url('../../assets/images/hero/hero1.jpg');
+    background-size: cover;
+    background-position: center;
+    margin-top: 0;
 }
 
 /* ── Brands Section ── */

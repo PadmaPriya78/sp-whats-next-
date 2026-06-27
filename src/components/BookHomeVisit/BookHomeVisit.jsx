@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import './BookHomeVisit.css';
-import solarConsultation from '../../assets/images/solar_consultation.png';
+import homeVisitImage from '../../assets/images/home-visit.jpg';
 
 function BookHomeVisit() {
     const [billAmount, setBillAmount] = useState('');
@@ -18,13 +18,13 @@ function BookHomeVisit() {
                     <h2>Book a Free Home Visit today!</h2>
                     <p>Schedule a FREE solar consultation at home!</p>
                 </div>
-                
+
                 <div className="bhv-content">
                     {/* Left Side: Image */}
                     <div className="bhv-image-wrapper">
-                        <img 
-                            src={solarConsultation} 
-                            alt="Solar Consultation" 
+                        <img
+                            src={homeVisitImage}
+                            alt="Solar Consultation"
                             className="bhv-image"
                         />
                     </div>
@@ -50,22 +50,22 @@ function BookHomeVisit() {
                             <div className="bhv-input-group bhv-bill-group">
                                 <label>What is your Bi-Monthly Electricity Bill? *</label>
                                 <div className="bhv-radio-buttons">
-                                    <button 
-                                        type="button" 
+                                    <button
+                                        type="button"
                                         className={billAmount === 'less_2000' ? 'active' : ''}
                                         onClick={() => setBillAmount('less_2000')}
                                     >
                                         Less than 2000
                                     </button>
-                                    <button 
-                                        type="button" 
+                                    <button
+                                        type="button"
                                         className={billAmount === '2000_5000' ? 'active' : ''}
                                         onClick={() => setBillAmount('2000_5000')}
                                     >
                                         2000 to 5000
                                     </button>
-                                    <button 
-                                        type="button" 
+                                    <button
+                                        type="button"
                                         className={billAmount === 'above_5000' ? 'active' : ''}
                                         onClick={() => setBillAmount('above_5000')}
                                     >

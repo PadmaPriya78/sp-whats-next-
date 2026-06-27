@@ -97,7 +97,7 @@ function Footer() {
                             </li>
                             <li>
                                 <span className="footer-contact-icon"><Phone size={16} strokeWidth={1.8} /></span>
-                                <a href="tel:+919876543210">+91 98765 43210</a>
+                                <a href="https://wa.me/919876543210" target="_blank" rel="noopener noreferrer">+91 98765 43210</a>
                             </li>
                             <li>
                                 <span className="footer-contact-icon"><Mail size={16} strokeWidth={1.8} /></span>

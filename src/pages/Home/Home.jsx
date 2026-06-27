@@ -10,6 +10,7 @@ import MapSection from "../../components/MapSection/MapSection";
 import BlogPreview from "../../components/BlogPreview/BlogPreview";
 import CTA from "../../components/CTA/CTA";
 import Footer from "../../components/Footer/Footer";
+import WhatsAppWidget from "../../components/WhatsAppWidget/WhatsAppWidget";
 
 function Home() {
     return (
@@ -27,6 +28,7 @@ function Home() {
                 <BlogPreview />
                 <CTA />
             </div>
+            <WhatsAppWidget />
             <Footer />
         </>
     );

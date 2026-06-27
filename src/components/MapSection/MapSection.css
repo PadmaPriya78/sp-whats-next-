@@ -29,37 +29,18 @@
     gap: 3rem;
 }
 
-/* ── SVG Map Area ── */
-.map-svg-wrap {
+/* ── Map Image Area ── */
+.map-image-wrap {
     flex: 1.2;
     position: relative;
     max-width: 600px;
     margin: 0 auto;
 }
 
-.map-svg {
+.map-image {
     width: 100%;
     height: auto;
-}
-
-/* ── Pin Animation ── */
-.map-pin {
-    animation: bounceIn 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275) backwards;
-}
-
-@keyframes bounceIn {
-    0%   { transform: scale(0) translateY(10px); opacity: 0; }
-    50%  { transform: scale(1.1) translateY(-5px); }
-    100% { transform: scale(1) translateY(0); opacity: 1; }
-}
-
-.map-label-group {
-    animation: fadeIn 0.6s ease-out backwards;
-}
-
-@keyframes fadeIn {
-    from { opacity: 0; transform: translateY(5px); }
-    to   { opacity: 1; transform: translateY(0); }
+    display: block;
 }
 
 /* ── Stats Area ── */
@@ -71,7 +52,9 @@
     max-width: 450px;
 }
 
-/* Hero card — orange gradient, same shape as navy in reference */
+
+
+/* Hero card — orange gradient */
 .map-stat-hero {
     background: linear-gradient(135deg, #f47b20 0%, #c25c0c 100%);
     border-radius: 14px;
@@ -143,7 +126,7 @@
         gap: 4rem;
     }
 
-    .map-svg-wrap {
+    .map-image-wrap {
         width: 100%;
         max-width: 500px;
     }

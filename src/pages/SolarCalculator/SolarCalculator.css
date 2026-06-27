@@ -97,7 +97,7 @@
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 20px;
-    max-width: 1600px;
+    max-width: 1280px;
     margin: 36px auto 0;
 }
 
@@ -378,7 +378,7 @@
 }
 
 .container.calc-container {
-    width: min(98%, 1600px);
+    width: min(98%, 1280px);
 }
 
 /* ══════════════════════════════════════════════
@@ -470,7 +470,7 @@
     grid-template-columns: 1fr 1.18fr;
     gap: 28px;
     align-items: flex-start;
-    max-width: 1600px;
+    max-width: 1280px;
     margin: 0 auto;
 }
 
@@ -1067,7 +1067,7 @@
 .calc-cta-wrap {
     text-align: center;
     margin-top: 52px;
-    max-width: 1600px;
+    max-width: 1280px;
     margin-left: auto;
     margin-right: auto;
     opacity: 0;

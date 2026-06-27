@@ -5,12 +5,16 @@
     width: 100%;
     z-index: 1000;
     background: transparent;
-    transition: background 0.4s ease, box-shadow 0.4s ease;
+    transition: background 0.4s ease, box-shadow 0.4s ease, transform 0.3s ease;
 }
 
 .navbar--scrolled {
     background: var(--white);
     box-shadow: 0 2px 20px rgba(0,0,0,0.1);
+}
+
+.navbar--hidden {
+    transform: translateY(-100%);
 }
 
 .navbar-inner {
@@ -138,6 +142,15 @@
     flex-shrink: 0; transition: transform 0.22s ease; margin-top: 1px;
 }
 .nav-dropdown--open .nav-dropdown-chevron { transform: rotate(180deg); }
+
+.nav-dropdown-menu::before {
+    content: '';
+    position: absolute;
+    top: -20px;
+    left: 0;
+    width: 100%;
+    height: 20px;
+}
 
 .nav-dropdown-menu {
     position: absolute; top: calc(100% + 4px); left: 0;

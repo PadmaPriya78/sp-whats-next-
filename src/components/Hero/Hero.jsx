@@ -1,4 +1,5 @@
 import { useState, useEffect, useCallback } from "react";
+import { Link } from "react-router-dom";
 import "./Hero.css";
 
 import bannerResidential from "../../assets/images/hero/banner-residential.png";
@@ -11,7 +12,7 @@ const slides = [
     {
         image: bannerResidential,
         headline: ["Residential Solar", "With Storage"],
-        cta: { text: "Making Rooftops Profitable", href: "#" },
+        cta: { text: "Making Rooftops Profitable", href: "/solar-calculator" },
         hashtag: true,
         align: "left",
     },
@@ -126,9 +127,9 @@ function Hero() {
                             </h1>
                             {slide.cta && (
                                 <div className="hero-banner__action">
-                                    <a className="hero-banner__btn" href={slide.cta.href} id="hero-cta-btn">
+                                    <Link className="hero-banner__btn" to={slide.cta.href} id="hero-cta-btn">
                                         {slide.cta.text}
-                                    </a>
+                                    </Link>
                                 </div>
                             )}
                         </div>
@@ -138,7 +139,7 @@ function Hero() {
                     {slide.centeredHashtag && (
                         <div className="hero-banner__title hero-banner__title--centered">
                             <h1 className="hero-banner__heading hero-banner__heading--no-border hero-banner__heading--hashtag-main">
-                                #The<span className="hero-banner__wise">Wise</span>Choice
+                                Power For Ever
                             </h1>
                         </div>
                     )}
@@ -146,7 +147,7 @@ function Hero() {
                     {/* Bottom-left hashtag */}
                     {slide.hashtag && (
                         <div className="hero-banner__hashtag">
-                            #The<span className="hero-banner__wise">Wise</span>Choice
+                            Power For Ever
                         </div>
                     )}
                 </div>

@@ -7,10 +7,18 @@
 
 /* ── Static Grid Layout ── */
 .clients-grid {
-    display: grid;
-    grid-template-columns: repeat(6, 1fr);
-    gap: 24px;
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+    gap: 16px;
     margin-top: 48px;
+    overflow-x: auto;
+    padding-bottom: 12px; /* For scrollbar */
+    scrollbar-width: none; /* Hide scrollbar Firefox */
+}
+
+.clients-grid::-webkit-scrollbar {
+    display: none; /* Hide scrollbar Chrome/Safari */
 }
 
 .client-logo-card {
@@ -20,8 +28,10 @@
     background: var(--white);
     border: 1.5px solid var(--border);
     border-radius: var(--radius-md);
-    padding: 15px 30px;
-    min-width: 220px;
+    padding: 15px 20px;
+    flex: 1 1 0;
+    min-width: 160px;
+    max-width: 220px;
     height: 100px;
     cursor: default;
     transition: var(--transition);
@@ -76,19 +86,23 @@
 
 /* ── Responsive ── */
 @media (max-width: 720px) {
-    .clients-grid {
-        grid-template-columns: repeat(2, 1fr);
-        gap: 16px;
+    .client-logo-card {
+        min-width: 140px;
+        padding: 12px 10px;
+    }
+    .client-brand {
+        font-size: 1.1rem;
+        padding: 8px 12px;
     }
 }
 
 @media (max-width: 480px) {
-    .clients-grid {
-        grid-template-columns: 1fr;
-        gap: 14px;
-    }
-
     .client-logo-card {
-        min-width: unset;
+        min-width: 130px;
+        height: 80px;
+    }
+    .client-brand {
+        font-size: 1rem;
+        padding: 6px 10px;
     }
 }

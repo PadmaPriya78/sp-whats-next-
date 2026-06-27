@@ -55,35 +55,35 @@ const fmt = (n) => Number(n).toLocaleString("en-IN");
 /* ── SVG Icons ── */
 const IconPhone = () => (
     <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-        <path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/>
+        <path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z" />
     </svg>
 );
 
 const IconSolar = () => (
     <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
-        <circle cx="12" cy="12" r="5"/>
-        <line x1="12" y1="1" x2="12" y2="3"/>
-        <line x1="12" y1="21" x2="12" y2="23"/>
-        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/>
-        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/>
-        <line x1="1" y1="12" x2="3" y2="12"/>
-        <line x1="21" y1="12" x2="23" y2="12"/>
-        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/>
-        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/>
+        <circle cx="12" cy="12" r="5" />
+        <line x1="12" y1="1" x2="12" y2="3" />
+        <line x1="12" y1="21" x2="12" y2="23" />
+        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64" />
+        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78" />
+        <line x1="1" y1="12" x2="3" y2="12" />
+        <line x1="21" y1="12" x2="23" y2="12" />
+        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36" />
+        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22" />
     </svg>
 );
 
 const IconHome = () => (
     <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-        <path d="M3 9.5L12 3l9 6.5V20a1 1 0 01-1 1H4a1 1 0 01-1-1V9.5z"/>
-        <path d="M9 21V12h6v9"/>
+        <path d="M3 9.5L12 3l9 6.5V20a1 1 0 01-1 1H4a1 1 0 01-1-1V9.5z" />
+        <path d="M9 21V12h6v9" />
     </svg>
 );
 
 const IconBuilding = () => (
     <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-        <rect x="3" y="3" width="18" height="18" rx="1"/>
-        <path d="M9 3v18M15 3v18M3 9h18M3 15h18"/>
+        <rect x="3" y="3" width="18" height="18" rx="1" />
+        <path d="M9 3v18M15 3v18M3 9h18M3 15h18" />
     </svg>
 );
 
@@ -169,7 +169,7 @@ function EnquiryCalculator() {
                     <p className="enquiry-calc__sub">
                         Use the calculator or call us on:
                     </p>
-                    <a href="tel:+919876543210" className="enquiry-calc__phone" id="enquiry-phone-link">
+                    <a href="https://wa.me/919876543210" target="_blank" rel="noopener noreferrer" className="enquiry-calc__phone" id="enquiry-phone-link">
                         <span className="enquiry-calc__phone-icon"><IconPhone /></span>
                         98765 43210
                     </a>
